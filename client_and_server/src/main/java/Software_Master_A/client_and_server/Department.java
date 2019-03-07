@@ -17,6 +17,22 @@ public class Department
 	{
 		
 	}
+
+	/**
+	 * @return the plans
+	 */
+	public Hashtable<Integer, PlanFile> getPlans()
+	{
+		return plans;
+	}
+
+	/**
+	 * @param plans the plans to set
+	 */
+	public void setPlans(Hashtable<Integer, PlanFile> plans)
+	{
+		this.plans = plans;
+	}
 	
 	
 }

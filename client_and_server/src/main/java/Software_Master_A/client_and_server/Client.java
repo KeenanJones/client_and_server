@@ -52,5 +52,23 @@ public class Client implements PlanInterface
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	/**
+	 * @return the cookie
+	 */
+	public String getCookie()
+	{
+		return cookie;
+	}
+
+	/**
+	 * @param cookie the cookie to set
+	 */
+	public void setCookie(String cookie)
+	{
+		this.cookie = cookie;
+	}
+	
+	
 }
 	

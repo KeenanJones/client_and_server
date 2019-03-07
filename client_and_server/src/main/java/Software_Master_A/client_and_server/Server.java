@@ -11,6 +11,20 @@ public class Server implements PlanInterface
 	
 	
 	
+	
+	/**
+	 * An admin account is required to initialize the server
+	 * since if note, no one can enter the server.
+	 */
+	public Server(Account admin)
+	{
+		loginMap = new Hashtable<String, Account>();
+		cookieMap = new Hashtable<String, Account>();
+		departmentMap = new Hashtable<String, Department>();
+		loginMap.put(admin.getUsername(),admin);
+	}
+	
+	
 	public String login(String username, String password)
 	{
 		// TODO Auto-generated method stub
@@ -51,6 +65,12 @@ public class Server implements PlanInterface
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	
+	
+	
+	
+	
 	
 	
 	
