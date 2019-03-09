@@ -1,5 +1,7 @@
 package Software_Master_A.client_and_server;
 
+import java.rmi.RemoteException;
+
 public interface PlanInterface
 {
 	
@@ -10,13 +12,13 @@ public interface PlanInterface
 	//May not need
 	PlanFile getPlanOutile();
 	
-	boolean pushPlan(PlanFile plan,String cookie);
+	boolean pushPlan(PlanFile plan,String cookie)throws RemoteException; 
 
-	boolean addUser(String username, String password, String department,String cookie);
+	boolean addUser(String username, String password, String department,String cookie)throws RemoteException;
 	
-	boolean addAdimin(String username, String password, String department,String cookie);
+	boolean addAdimin(String username, String password, String department,String cookie)throws RemoteException;
 	
-	boolean flagPlan(String department, String year,String cookie);
+	boolean flagPlan(String department, String year,String cookie)throws RemoteException;
 	
-	boolean addDepartment(String department,String cookie);
+	boolean addDepartment(String department,String cookie)throws RemoteException;
 }

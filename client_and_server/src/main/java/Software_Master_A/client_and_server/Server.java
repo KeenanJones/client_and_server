@@ -1,8 +1,11 @@
 package Software_Master_A.client_and_server;
 
+import java.io.Serializable;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.util.Hashtable;
 
-public class Server implements PlanInterface
+public class Server implements PlanInterface, Remote, Serializable
 {
 
 	Hashtable<String, Account> loginMap;
@@ -25,7 +28,7 @@ public class Server implements PlanInterface
 	}
 	
 	
-	public String login(String username, String password)
+	public String login(String username, String password) 
 	{
 		// TODO Auto-generated method stub
 		return null;

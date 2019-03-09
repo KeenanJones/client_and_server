@@ -14,6 +14,39 @@ public class Account
 		return null;
 	}
 
+	
+	/**
+	 * @param username
+	 * @param password
+	 */
+	public Account(String username, String password)
+	{
+		this(username, password, null, false);
+	}
+
+	public Account(String username, String password, boolean isAdmin)
+	{
+		this(username, password, null, isAdmin);
+	}
+
+
+	/**
+	 * @param username
+	 * @param password
+	 * @param cookie
+	 * @param department
+	 * @param isAdmin
+	 */
+	public Account(String username, String password, Department department, boolean isAdmin)
+	{
+		super();
+		this.username = username;
+		this.password = password;
+		this.department = department;
+		this.isAdmin = isAdmin;
+	}
+
+
 	/**
 	 * @return the username
 	 */

@@ -4,7 +4,7 @@ public class Client implements PlanInterface
 {
 
 	String cookie;
-
+	Server server;
 	public String login(String username, String password)
 	{
 		// TODO Auto-generated method stub
@@ -67,6 +67,22 @@ public class Client implements PlanInterface
 	public void setCookie(String cookie)
 	{
 		this.cookie = cookie;
+	}
+
+	/**
+	 * @return the server
+	 */
+	public Server getServer()
+	{
+		return server;
+	}
+
+	/**
+	 * @param server the server to set
+	 */
+	public void setServer(Server server)
+	{
+		this.server = server;
 	}
 	
 	
