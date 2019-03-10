@@ -11,10 +11,14 @@ public class Account
 	
 	String testCredential(String password)
 	{
+		if (this.password.equals(password))
+		{
+			return this.cookie;
+		}
+		
 		return null;
 	}
 
-	
 	/**
 	 * @param username
 	 * @param password

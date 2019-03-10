@@ -21,4 +21,6 @@ public interface PlanInterface
 	boolean flagPlan(String department, int year,Boolean editable, String cookie)throws RemoteException;
 	
 	boolean addDepartment(String department,String cookie)throws RemoteException;
+	
+	boolean addPlan(String department, PlanFile planFile, String cookie) throws RemoteException;
 }

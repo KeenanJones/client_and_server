@@ -89,6 +89,12 @@ public class Client implements PlanInterface
 		this.server = server;
 	}
 
+	public boolean addPlan(String department, PlanFile planFile, String cookie) throws RemoteException
+	{
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 
 	
 }
