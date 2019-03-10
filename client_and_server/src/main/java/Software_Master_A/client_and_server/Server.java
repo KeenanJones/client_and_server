@@ -33,7 +33,7 @@ public class Server implements PlanInterface, Remote, Serializable
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public PlanFile getPlan(int year)
+	public PlanFile getPlan(int year, String cookie)
 	{
 		// TODO Auto-generated method stub
 		return null;
@@ -58,12 +58,15 @@ public class Server implements PlanInterface, Remote, Serializable
 		// TODO Auto-generated method stub
 		return false;
 	}
-	public boolean flagPlan(String department, String year, String cookie)
+	
+	public boolean addDepartment(String department, String cookie)
 	{
 		// TODO Auto-generated method stub
 		return false;
 	}
-	public boolean addDepartment(String department, String cookie)
+
+
+	public boolean flagPlan(String department, int year, Boolean editable, String cookie) throws RemoteException
 	{
 		// TODO Auto-generated method stub
 		return false;

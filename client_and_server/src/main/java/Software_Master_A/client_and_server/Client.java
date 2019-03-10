@@ -1,5 +1,7 @@
 package Software_Master_A.client_and_server;
 
+import java.rmi.RemoteException;
+
 public class Client implements PlanInterface
 {
 
@@ -11,7 +13,7 @@ public class Client implements PlanInterface
 		return null;
 	}
 
-	public PlanFile getPlan(int year)
+	public PlanFile getPlan(int year, String cookie)
 	{
 		// TODO Auto-generated method stub
 		return null;
@@ -41,11 +43,7 @@ public class Client implements PlanInterface
 		return false;
 	}
 
-	public boolean flagPlan(String department, String year, String cookie)
-	{
-		// TODO Auto-generated method stub
-		return false;
-	}
+
 
 	public boolean addDepartment(String department, String cookie)
 	{
@@ -53,6 +51,12 @@ public class Client implements PlanInterface
 		return false;
 	}
 
+	public boolean flagPlan(String department, int year, Boolean editable, String cookie) throws RemoteException
+	{
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
 	/**
 	 * @return the cookie
 	 */
@@ -84,7 +88,8 @@ public class Client implements PlanInterface
 	{
 		this.server = server;
 	}
-	
+
+
 	
 }
 	

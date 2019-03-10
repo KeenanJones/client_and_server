@@ -7,7 +7,7 @@ public interface PlanInterface
 	
 	String login(String username, String password);
 
-	PlanFile getPlan(int year);
+	PlanFile getPlan(int year, String cookie) throws RemoteException;
 	
 	//May not need
 	PlanFile getPlanOutile();
@@ -18,7 +18,7 @@ public interface PlanInterface
 	
 	boolean addAdimin(String username, String password, String department,String cookie)throws RemoteException;
 	
-	boolean flagPlan(String department, String year,String cookie)throws RemoteException;
+	boolean flagPlan(String department, int year,Boolean editable, String cookie)throws RemoteException;
 	
 	boolean addDepartment(String department,String cookie)throws RemoteException;
 }
