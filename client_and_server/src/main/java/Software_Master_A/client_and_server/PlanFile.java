@@ -1,6 +1,8 @@
 package Software_Master_A.client_and_server;
 
-public class PlanFile
+import java.io.Serializable;
+
+public class PlanFile implements Serializable
 {
 
 	int year;

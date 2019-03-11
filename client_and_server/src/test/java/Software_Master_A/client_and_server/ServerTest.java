@@ -28,14 +28,19 @@ class ServerTest
 			p.plan.setName("Chemistry"+i);
 			chemistry.addPlan(2000+i,p);
 		}
+//		assertEquals("Chemistry1", chemistry.plans.get(2001).plan.getName());
 		String username = "Admin";
 		String password = "helloworld";
 		Account admin = new Account(username, password,true);
 		admin.setCookie("12sdfsdg");
-		Server server = new Server(admin);
-		server.addDepartment(chemistry.departmentName, admin.cookie);
+		PlanInterface server = new Server(admin);
+		//server.addDepartment(chemistry.departmentName, admin.cookie);
+		
+		Server myServer = (Server)server;
+		myServer.departmentMap.put(chemistry.departmentName, chemistry);
+		
 		Registry registry = LocateRegistry.createRegistry(100);
-		Server stub = (Server)UnicastRemoteObject.exportObject(server, 0);
+		PlanInterface stub = (PlanInterface)UnicastRemoteObject.exportObject(server, 0);
 		registry.rebind("Server", stub);
 	}
 
@@ -52,7 +57,7 @@ class ServerTest
 		//We will go ahead and add some users
 		
 		client.addUser("user1", "123456", "Chemistry", cookie);
-		client.addAdimin("admin2", "78910j", "Chemistry", cookie);
+		client.addAdmin("admin2", "78910j", "Chemistry", cookie);
 		
 		Client client2 = new Client();
 		
@@ -82,6 +87,8 @@ class ServerTest
 		//switch to user
 		cookie = client.login("chemist1", "123456");
 		PlanFile planFile = client.getPlan(2001,cookie);
+		
+		
 		assertEquals(2001, planFile.year);
 		assertEquals("Chemistry1", planFile.plan.getName());
 		
@@ -143,7 +150,7 @@ class ServerTest
 		assertEquals("Chemistry0", planFile.plan.getName());
 		
 		//it should not be able to access admin methods
-		boolean result = client.addAdimin("hh", "sd", "Chemistry", cookie);
+		boolean result = client.addAdmin("hh", "sd", "Chemistry", cookie);
 		assertEquals(false, result);
 		
 		result= client.addDepartment("Cool", cookie);
@@ -164,7 +171,7 @@ class ServerTest
 		assertEquals("Chemistry0", planFile.plan.getName());
 		
 		//it should not be able to access admin methods
-		result = client.addAdimin("hh", "sd", "Chemistry", cookie);
+		result = client.addAdmin("hh", "sd", "Chemistry", cookie);
 		assertEquals(false, result);
 		
 		result= client.addDepartment("Cool", cookie);
@@ -186,7 +193,7 @@ class ServerTest
 		Client client = new Client();
 		String cookie = client.login("Admin", "helloworld");
 		
-		boolean result = client.addAdimin("bigChemist", "234456", "Chemistry", cookie);
+		boolean result = client.addAdmin("bigChemist", "234456", "Chemistry", cookie);
 		
 		cookie =client.login("bigChemist", "234456");
 		assertNotEquals(null, cookie);
@@ -194,7 +201,7 @@ class ServerTest
 		result = client.addUser("aChemist", "0000000", "Chemistry", cookie);
 		assertEquals(true, result);
 		
-		result = client.addAdimin("Hello", "00dsfgdfg", "Chemistry", cookie);
+		result = client.addAdmin("Hello", "00dsfgdfg", "Chemistry", cookie);
 		assertEquals(true, result);
 		
 		result = client.addDepartment("Biology", cookie);
@@ -202,7 +209,7 @@ class ServerTest
 		
 		//switch to user
 		cookie = client.login("aChemist", "0000000");
-		result = client.addAdimin("coolddssdd", "sgsfgds", "Chemistry", cookie);
+		result = client.addAdmin("coolddssdd", "sgsfgds", "Chemistry", cookie);
 		assertEquals(false, result);
 		cookie = client.login("coolddssdd", "sgsfgds");
 		assertEquals(null, cookie);
@@ -222,7 +229,7 @@ class ServerTest
 		assertEquals(true, result);
 		//after adding the department, now user should be added correctly
 		result = client.addUser("998", "334", "Fly", cookie);
-		assertEquals(false, true);
+		assertEquals(true, result);
 		
 		//Chemistry is already there, should not succeed
 		result = client.addDepartment("Chemistry", cookie);

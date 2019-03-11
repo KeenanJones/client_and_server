@@ -3,13 +3,14 @@
  */
 package Software_Master_A.client_and_server;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * @author Courtney and Jack
  *
  */
-public abstract class Plan
+public abstract class Plan implements Serializable
 {
 	//abstract methods addNode, removeNode, getRoot, getList 
 	//   to be implemented in concrete classes

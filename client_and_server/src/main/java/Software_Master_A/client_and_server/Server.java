@@ -7,7 +7,9 @@ import java.rmi.RemoteException;
 import java.util.Hashtable;
 import java.util.Random;
 
-public class Server implements PlanInterface, Remote, Serializable
+import javax.naming.spi.DirStateFactory.Result;
+
+public class Server implements PlanInterface
 {
 
 	Hashtable<String, Account> loginMap;
@@ -16,7 +18,10 @@ public class Server implements PlanInterface, Remote, Serializable
 	
 	
 	
-	
+	public Server()
+	{
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * An admin account is required to initialize the server
 	 * since if note, no one can enter the server.
@@ -27,6 +32,7 @@ public class Server implements PlanInterface, Remote, Serializable
 		cookieMap = new Hashtable<String, Account>();
 		departmentMap = new Hashtable<String, Department>();
 		loginMap.put(admin.getUsername(),admin);
+		cookieMap.put(admin.getCookie(), admin);
 	}
 	
 	
@@ -56,7 +62,7 @@ public class Server implements PlanInterface, Remote, Serializable
 		return planFile;
 	}
 	
-	public PlanFile getPlanOutile()
+	public PlanFile getPlanOutline()
 	{
 		// TODO Auto-generated method stub
 		return null;
@@ -98,22 +104,31 @@ public class Server implements PlanInterface, Remote, Serializable
 		user.setCookie(userCookie);
 		cookieMap.put(userCookie, user);
 		loginMap.put(user.getUsername(), user);
-		
 		return true;
 	}
 	
 	
-	public boolean addAdimin(String username, String password, String department, String cookie)
+	public boolean addAdmin(String username, String password, String department, String cookie)
 	{
-		addUser(username, password, department, cookie);
 		
-		Account admin = loginMap.get(username);
-		admin.setAdmin(true);
-		return false;
+		boolean result = addUser(username, password, department, cookie);
+		
+		if(!result)
+		{
+			return false;
+		}
+		Account newAdmin = loginMap.get(username);
+		newAdmin.setAdmin(true);
+		return true;
 	}
 	
 	public boolean addDepartment(String department, String cookie)
 	{
+		Account admin = cookieMap.get(cookie);
+		if(!admin.isAdmin())
+		{
+			return false;
+		}
 		Department depart = departmentMap.get(department);
 		if(depart != null)
 		{

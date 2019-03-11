@@ -3,13 +3,14 @@
  * 
  */
 package Software_Master_A.client_and_server;
+import java.io.Serializable;
 import java.util.ArrayList;
 /**
  * @author Courtney and Jack
  *
  */
 
-public class Node
+public class Node implements Serializable
 {
 	Node parent;
 	String name;

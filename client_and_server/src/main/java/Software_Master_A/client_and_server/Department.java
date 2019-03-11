@@ -22,6 +22,7 @@ public class Department
 	PlanFile getPlan(int year)
 	{
 		PlanFile planFile = plans.get(year);
+		//System.out.println(year+" "+planFile);
 		//if the plan in year A doesn't exist, planFile will be null
 		// so we are able to return the correct value
 		return planFile;

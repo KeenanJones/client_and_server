@@ -1,45 +1,119 @@
 package Software_Master_A.client_and_server;
 
+import java.rmi.AccessException;
+import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
 public class Client implements PlanInterface
 {
 
 	String cookie;
-	Server server;
+	PlanInterface server;
+	
+	
+	/**
+	 * 
+	 */
+	public Client()
+	{
+		Registry registry =null;
+	
+		
+		try
+		{
+			registry = LocateRegistry.getRegistry(100);
+			server = (PlanInterface)registry.lookup("Server");
+		} catch (AccessException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (RemoteException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NotBoundException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	public String login(String username, String password)
 	{
-		// TODO Auto-generated method stub
+		
+		try
+		{
+			return server.login(username, password);
+		} catch (RemoteException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 
 	public PlanFile getPlan(int year, String cookie)
 	{
 		// TODO Auto-generated method stub
+		try
+		{
+			return server.getPlan(year, cookie);
+		} catch (RemoteException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 
-	public PlanFile getPlanOutile()
+	public PlanFile getPlanOutline()
 	{
 		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	public boolean pushPlan(PlanFile plan, String cookie)
 	{
 		// TODO Auto-generated method stub
+		try
+		{
+			return server.pushPlan(plan, cookie);
+		} catch (RemoteException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 	public boolean addUser(String username, String password, String department, String cookie)
 	{
 		// TODO Auto-generated method stub
+		try
+		{
+			return server.addUser(username, password, department, cookie);
+		} catch (RemoteException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return false;
 	}
 
-	public boolean addAdimin(String username, String password, String department, String cookie)
+	public boolean addAdmin(String username, String password, String department, String cookie)
 	{
 		// TODO Auto-generated method stub
+		try
+		{
+			return server.addAdmin(username, password, department, cookie);
+		} catch (RemoteException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return false;
 	}
 
@@ -48,12 +122,28 @@ public class Client implements PlanInterface
 	public boolean addDepartment(String department, String cookie)
 	{
 		// TODO Auto-generated method stub
+		try
+		{
+			return server.addDepartment(department, cookie);
+		} catch (RemoteException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return false;
 	}
 
-	public boolean flagPlan(String department, int year, Boolean editable, String cookie) throws RemoteException
+	public boolean flagPlan(String department, int year, Boolean editable, String cookie) 
 	{
 		// TODO Auto-generated method stub
+		try
+		{
+			return server.flagPlan(department, year, editable, cookie);
+		} catch (RemoteException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return false;
 	}
 	
@@ -76,7 +166,7 @@ public class Client implements PlanInterface
 	/**
 	 * @return the server
 	 */
-	public Server getServer()
+	public PlanInterface getServer()
 	{
 		return server;
 	}
