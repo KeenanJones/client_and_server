@@ -10,6 +10,8 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
+import javax.naming.spi.DirStateFactory.Result;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -234,5 +236,34 @@ class ServerTest
 		//Chemistry is already there, should not succeed
 		result = client.addDepartment("Chemistry", cookie);
 		assertEquals(false, result);
+	}
+	
+	@Test
+	void testAddPlan()
+	{
+		Client client = new Client();
+		String cookie = client.login("Admin", "helloworld");
+		client.addUser("aChemistsdfsdf", "00ttttt00000", "Chemistry", cookie);
+		cookie = client.login("aChemistsdfsdf", "00ttttt00000");
+		
+		PlanFile result1 = client.getPlan(2100, cookie);
+		assertEquals(null, result1);
+		
+		int i = 100;
+		PlanFile p = new PlanFile(2000+i, true, new Centre());
+		p.plan.setName("Chemistry"+i);
+		
+		cookie = client.login("Admin", "helloworld");
+		boolean result = client.addPlan("Chemistry", p, cookie);
+		assertEquals(true, result);
+		
+		cookie = client.login("aChemistsdfsdf", "00ttttt00000");
+		
+		result1 = client.getPlan(2100, cookie);
+		assertNotEquals(null,result1);
+		
+		result = client.addPlan("Chemistry", p, cookie);
+		assertEquals(false, result);
+		
 	}
 }

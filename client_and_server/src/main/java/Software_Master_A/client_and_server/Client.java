@@ -40,6 +40,27 @@ public class Client implements PlanInterface
 		}
 	}
 
+	public Client(String serverAddress)
+	{
+
+		try
+		{
+			Registry registry = LocateRegistry.getRegistry(serverAddress);
+			server = (PlanInterface)registry.lookup("Server");
+		} catch (AccessException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (RemoteException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NotBoundException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public String login(String username, String password)
 	{
 		
@@ -68,9 +89,16 @@ public class Client implements PlanInterface
 		return null;
 	}
 
-	public PlanFile getPlanOutline()
+	public String getPlanOutline(String cookie)
 	{
-		// TODO Auto-generated method stub
+		try
+		{
+			return server.getPlanOutline(cookie);
+		} catch (RemoteException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return null;
 	}
@@ -179,10 +207,30 @@ public class Client implements PlanInterface
 		this.server = server;
 	}
 
-	public boolean addPlan(String department, PlanFile planFile, String cookie) throws RemoteException
+	public boolean addPlan(String department, PlanFile planFile, String cookie) 
 	{
-		// TODO Auto-generated method stub
+		try
+		{
+			return server.addPlan(department, planFile, cookie);
+		} catch (RemoteException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return false;
+	}
+
+	public String getDepartmentOutline() 
+	{
+		try
+		{
+			return server.getDepartmentOutline();
+		} catch (RemoteException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 

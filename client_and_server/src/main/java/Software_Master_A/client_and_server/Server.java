@@ -2,12 +2,19 @@ package Software_Master_A.client_and_server;
 
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
+import java.lang.invoke.VarHandle;
+import java.net.CookieHandler;
+import java.nio.charset.MalformedInputException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.Random;
+import java.util.Set;
 
 import javax.naming.spi.DirStateFactory.Result;
+
+import org.omg.PortableInterceptor.USER_EXCEPTION;
 
 public class Server implements PlanInterface
 {
@@ -38,6 +45,10 @@ public class Server implements PlanInterface
 	
 	public String login(String username, String password) 
 	{
+		if(username == null)
+		{
+			return null;
+		}
 		Account user = loginMap.get(username);
 		if (user == null)
 		{
@@ -52,6 +63,10 @@ public class Server implements PlanInterface
 	
 	public PlanFile getPlan(int year, String cookie)
 	{
+		if (cookie == null)
+		{
+			return null;
+		}
 		Account user = cookieMap.get(cookie);
 		if(user == null)
 		{
@@ -62,15 +77,38 @@ public class Server implements PlanInterface
 		return planFile;
 	}
 	
-	public PlanFile getPlanOutline()
+	public String getPlanOutline(String cookie)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		if (cookie == null)
+		{
+			return null;
+		}
+		
+		Account account = cookieMap.get(cookie);
+		if (account == null)
+		{
+			return null;
+		}
+		
+		Department department = account.getDepartment();
+		Set<Integer> map = department.plans.keySet();
+		Iterator<Integer> plans = map.iterator();
+		String outline="";
+		while(plans.hasNext())
+		{
+			PlanFile file = department.getPlans().get(plans.next());
+			outline += file.year+" "+file.plan.getName()+"\n";
+		}
+		return outline;
 	}
 	
 	
 	public boolean pushPlan(PlanFile plan, String cookie)
 	{
+		if (cookie == null)
+		{
+			return false;
+		}
 		Account user = cookieMap.get(cookie);
 		if(user == null)
 		{
@@ -82,6 +120,11 @@ public class Server implements PlanInterface
 	}
 	public boolean addUser(String username, String password, String department, String cookie)
 	{
+		if (cookie == null)
+		{
+			return false;
+		}
+		
 		Account admin = cookieMap.get(cookie);
 		if(admin == null)
 		{
@@ -110,6 +153,10 @@ public class Server implements PlanInterface
 	
 	public boolean addAdmin(String username, String password, String department, String cookie)
 	{
+		if (cookie == null)
+		{
+			return false;
+		}
 		
 		boolean result = addUser(username, password, department, cookie);
 		
@@ -124,6 +171,11 @@ public class Server implements PlanInterface
 	
 	public boolean addDepartment(String department, String cookie)
 	{
+		if (cookie == null)
+		{
+			return false;
+		}
+		
 		Account admin = cookieMap.get(cookie);
 		if(!admin.isAdmin())
 		{
@@ -141,6 +193,12 @@ public class Server implements PlanInterface
 
 	public boolean flagPlan(String department, int year, Boolean editable, String cookie) throws RemoteException
 	{
+		
+		if (cookie == null)
+		{
+			return false;
+		}
+		
 		Account admin = cookieMap.get(cookie);
 		if(admin == null || !admin.isAdmin())
 		{
@@ -166,6 +224,10 @@ public class Server implements PlanInterface
 
 	public boolean addPlan(String department, PlanFile planFile, String cookie) throws RemoteException
 	{
+		if (cookie == null)
+		{
+			return false;
+		}
 		Account admin = cookieMap.get(cookie);
 		if(admin == null || !admin.isAdmin())
 		{
@@ -188,6 +250,18 @@ public class Server implements PlanInterface
 		new Random().nextBytes(bs);
 		String cookie = new String(bs);
 		return cookie;
+	}
+	public String getDepartmentOutline() throws RemoteException
+	{
+		
+		Set<String> departmentNames = departmentMap.keySet();
+		Iterator<String> iterator = departmentNames.iterator();
+		String outline= "";
+		while(iterator.hasNext())
+		{
+			outline += iterator.next()+"\n";
+		}
+		return outline;
 	}
 	
 	

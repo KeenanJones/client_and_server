@@ -13,8 +13,9 @@ public interface PlanInterface extends Remote,Serializable
 	PlanFile getPlan(int year, String cookie) throws RemoteException;
 	
 	//May not need
-	PlanFile getPlanOutline()throws RemoteException;
+	String getPlanOutline(String cookie)throws RemoteException;
 	
+	String getDepartmentOutline() throws RemoteException;
 	boolean pushPlan(PlanFile plan,String cookie)throws RemoteException; 
 
 	boolean addUser(String username, String password, String department,String cookie)throws RemoteException;
