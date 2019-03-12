@@ -5,16 +5,22 @@ package Software_Master_A.client_and_server;
 
 import java.util.ArrayList;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Courtney and Jack
- *
+ * The Class Centre.
  */
 public class Centre extends Plan
 {
+	
+	/** The name. */
 	// name of plan, set by client
 	public String name;
+	
+	/** The default nodes. */
 	// list of default nodes
 	public ArrayList<String> defaultNodes = new ArrayList<String>(); 
+	
+	/** The root. */
 	//pointer to top of IowaState plan tree
 	public Node root;
 	
@@ -24,6 +30,10 @@ public class Centre extends Plan
 	// sets default strings in defaultNodes
 	// adds node for each string in list
 	
+	
+	/**
+	 * Instantiates a new centre.
+	 */
 	public Centre()
 	{
 		defaultNodes.clear();
@@ -32,6 +42,9 @@ public class Centre extends Plan
 	}
 	//set strings for default stages Centre plan
 
+	/**
+	 * Sets the default strings.
+	 */
 	private void setDefaultStrings()
 	{
 		defaultNodes.add("Mission");
@@ -42,6 +55,9 @@ public class Centre extends Plan
 	}
 	
 	// make nodes for all of the strings in defaultNodes
+	/**
+	 * Adds the default nodes.
+	 */
 	// Create pointer for tree called root
 	private void addDefaultNodes()
 	{
@@ -57,11 +73,8 @@ public class Centre extends Plan
 	// cannot add to Mission since there can only be one
 	// makes node and sets to parent, uses for loop to iterate through the list of names
 //  to add the nodes that follow
-	/**
-	 * Take a Node parent and adds the required children and returns a boolean
-	 * true if added
-	 * @param parent parent of node that needs to be added
-	 * @return boolean true if added
+	/* (non-Javadoc)
+	 * @see Software_Master_A.client_and_server.Plan#addNode(Software_Master_A.client_and_server.Node)
 	 */
 	public boolean addNode(Node parent)
 	{	
@@ -87,11 +100,8 @@ public class Centre extends Plan
 	// remove a node if it is allowed to be removed
 	// cannot be removed if it is the only child of its parent
 	//     or if it is the root node
-	/**
-	 * Takes a Node nodeRemove and returns a boolean
-	 * true is removed
-	 * @param nodeRemove node to be removed
-	 * @return boolean true if removed
+	/* (non-Javadoc)
+	 * @see Software_Master_A.client_and_server.Plan#removeNode(Software_Master_A.client_and_server.Node)
 	 */
 	public boolean removeNode(Node nodeRemove)
 	{
@@ -112,40 +122,32 @@ public class Centre extends Plan
 	}
 	
 	//Getter and setters
-	/**
-	 * returns the root node
-	 * @return Node root node
-	 * 
+	/* (non-Javadoc)
+	 * @see Software_Master_A.client_and_server.Plan#getRoot()
 	 */
 	public Node getRoot()
 	{
 		return root;
 	}
 	
-	/**
-	 * returns a list of default node strings
-	 * @return ArrayList list of default node strings
-	 * 
+	/* (non-Javadoc)
+	 * @see Software_Master_A.client_and_server.Plan#getList()
 	 */
 	public ArrayList<String> getList()
 	{
 		return defaultNodes;
 	}
 	
-	/**
-	 * returns a string name of the plan
-	 * @return String name of plan
-	 * 
+	/* (non-Javadoc)
+	 * @see Software_Master_A.client_and_server.Plan#getName()
 	 */
 	public String getName()
 	{
 		return name;
 	}
 
-	/**
-	 * takes a string name and sets plan name
-	 * @param name name to set as plan name
-	 * 
+	/* (non-Javadoc)
+	 * @see Software_Master_A.client_and_server.Plan#setName(java.lang.String)
 	 */
 	public void setName(String name)
 	{
@@ -198,6 +200,27 @@ public class Centre extends Plan
 		} else if (!root.equals(other.root))
 			return false;
 		return true;
+	}
+
+	/**
+	 * @return the defaultNodes
+	 */
+	public ArrayList<String> getDefaultNodes() {
+		return defaultNodes;
+	}
+
+	/**
+	 * @param defaultNodes the defaultNodes to set
+	 */
+	public void setDefaultNodes(ArrayList<String> defaultNodes) {
+		this.defaultNodes = defaultNodes;
+	}
+
+	/**
+	 * @param root the root to set
+	 */
+	public void setRoot(Node root) {
+		this.root = root;
 	}
 
 	

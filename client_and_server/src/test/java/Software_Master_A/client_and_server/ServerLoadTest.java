@@ -2,34 +2,24 @@ package Software_Master_A.client_and_server;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.lang.ref.Cleaner.Cleanable;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.ExportException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
 
-import javax.naming.spi.DirStateFactory.Result;
-
+import org.junit.experimental.theories.Theories;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import junit.framework.TestCase;
-
-// TODO: Auto-generated Javadoc
 /**
- * The Class ServerTest.
- */
-class ServerTest 
-{
+ * @author liujiang
+ * The test is basically the same as ServerTest
+ * we only changed myserver to server load from disk
+ */ 
+class ServerLoadTest {
 
-	/**
-	 * Sets the up before class.
-	 *
-	 * @throws Exception the exception
-	 */
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception
 	{
@@ -51,6 +41,9 @@ class ServerTest
 		Server myServer = (Server)server;
 		myServer.departmentMap.put(chemistry.departmentName, chemistry);
 		
+		myServer.save();
+		server = Server.loadServer();
+		
 		Registry registry = null;
 		try {
 			registry = LocateRegistry.createRegistry(100);
@@ -62,6 +55,8 @@ class ServerTest
 		PlanInterface stub = (PlanInterface)UnicastRemoteObject.exportObject(server, 0);
 		registry.rebind("Server", stub);
 	}
+
+	
 
 	/**
 	 * Login test.

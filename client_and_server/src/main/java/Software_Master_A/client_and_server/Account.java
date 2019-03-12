@@ -1,14 +1,33 @@
 package Software_Master_A.client_and_server;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Account.
+ */
 public class Account
 {
 
+	/** The username. */
 	String username;
+	
+	/** The password. */
 	String password;
+	
+	/** The cookie. */
 	String cookie;
+	
+	/** The department. */
 	Department department;
+	
+	/** The is admin. */
 	boolean isAdmin;
 	
+	/**
+	 * Test credential.
+	 *	Check if the password sent by the client matches that stored in the account object
+	 * @param password the password
+	 * @return the string
+	 */
 	String testCredential(String password)
 	{
 		if (this.password.equals(password))
@@ -19,15 +38,28 @@ public class Account
 		return null;
 	}
 
+	public Account()
+	{
+		
+	}
 	/**
-	 * @param username
-	 * @param password
+	 * Instantiates a new account.
+	 *
+	 * @param username the username
+	 * @param password the password
 	 */
 	public Account(String username, String password)
 	{
 		this(username, password, null, false);
 	}
 
+	/**
+	 * Instantiates a new account.
+	 *
+	 * @param username the username
+	 * @param password the password
+	 * @param isAdmin the is admin
+	 */
 	public Account(String username, String password, boolean isAdmin)
 	{
 		this(username, password, null, isAdmin);
@@ -35,11 +67,12 @@ public class Account
 
 
 	/**
-	 * @param username
-	 * @param password
-	 * @param cookie
-	 * @param department
-	 * @param isAdmin
+	 * Instantiates a new account.
+	 *
+	 * @param username the username
+	 * @param password the password
+	 * @param department the department
+	 * @param isAdmin the is admin
 	 */
 	public Account(String username, String password, Department department, boolean isAdmin)
 	{
@@ -52,6 +85,8 @@ public class Account
 
 
 	/**
+	 * Gets the username.
+	 *
 	 * @return the username
 	 */
 	public String getUsername()
@@ -60,7 +95,9 @@ public class Account
 	}
 
 	/**
-	 * @param username the username to set
+	 * Sets the username.
+	 *
+	 * @param username the new username
 	 */
 	public void setUsername(String username)
 	{
@@ -68,6 +105,8 @@ public class Account
 	}
 
 	/**
+	 * Gets the password.
+	 *
 	 * @return the password
 	 */
 	public String getPassword()
@@ -76,7 +115,9 @@ public class Account
 	}
 
 	/**
-	 * @param password the password to set
+	 * Sets the password.
+	 *
+	 * @param password the new password
 	 */
 	public void setPassword(String password)
 	{
@@ -84,6 +125,8 @@ public class Account
 	}
 
 	/**
+	 * Gets the cookie.
+	 *
 	 * @return the cookie
 	 */
 	public String getCookie()
@@ -92,7 +135,9 @@ public class Account
 	}
 
 	/**
-	 * @param cookie the cookie to set
+	 * Sets the cookie.
+	 *
+	 * @param cookie the new cookie
 	 */
 	public void setCookie(String cookie)
 	{
@@ -100,6 +145,8 @@ public class Account
 	}
 
 	/**
+	 * Gets the department.
+	 *
 	 * @return the department
 	 */
 	public Department getDepartment()
@@ -108,7 +155,9 @@ public class Account
 	}
 
 	/**
-	 * @param department the department to set
+	 * Sets the department.
+	 *
+	 * @param department the new department
 	 */
 	public void setDepartment(Department department)
 	{
@@ -116,7 +165,9 @@ public class Account
 	}
 
 	/**
-	 * @return the isAdmin
+	 * Checks if is admin.
+	 *
+	 * @return true, if is admin
 	 */
 	public boolean isAdmin()
 	{
@@ -124,7 +175,9 @@ public class Account
 	}
 
 	/**
-	 * @param isAdmin the isAdmin to set
+	 * Sets the admin.
+	 *
+	 * @param isAdmin the new admin
 	 */
 	public void setAdmin(boolean isAdmin)
 	{

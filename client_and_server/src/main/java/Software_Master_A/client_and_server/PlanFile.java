@@ -2,21 +2,34 @@ package Software_Master_A.client_and_server;
 
 import java.io.Serializable;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PlanFile.
+ */
 public class PlanFile implements Serializable
 {
 
+	/** The year. */
 	int year;
+	
+	/** The editable. */
 	boolean editable;
 	//need to figure out how to import sprint1 project
+	/** The plan. */
 	//Plan plan;
 	Plan plan;
 	
 	
-	
+	public PlanFile()
+	{
+		
+	}
 	/**
-	 * @param year
-	 * @param editable
-	 * @param plan
+	 * Instantiates a new plan file.
+	 *
+	 * @param year the year
+	 * @param editable the editable
+	 * @param plan the plan
 	 */
 	public PlanFile(int year, boolean editable, Plan plan)
 	{
@@ -75,6 +88,8 @@ public class PlanFile implements Serializable
 
 	
 	/**
+	 * Gets the year.
+	 *
 	 * @return the year
 	 */
 	public int getYear()
@@ -84,38 +99,53 @@ public class PlanFile implements Serializable
 	
 
 	/**
-	 * @param year the year to set
+	 * Sets the year.
+	 *
+	 * @param year the new year
 	 */
 	public void setYear(int year)
 	{
 		this.year = year;
 	}
+	
 	/**
-	 * @return the editable
+	 * Checks if is editable.
+	 *
+	 * @return true, if is editable
 	 */
 	public boolean isEditable()
 	{
 		return editable;
 	}
+	
 	/**
-	 * @param editable the editable to set
+	 * Sets the editable.
+	 *
+	 * @param editable the new editable
 	 */
 	public void setEditable(boolean editable)
 	{
 		this.editable = editable;
 	}
+	
 	/**
+	 * Gets the plan.
+	 *
 	 * @return the plan
 	 */
 	public Plan getPlan()
 	{
 		return plan;
 	}
+	
 	/**
-	 * @param plan the plan to set
+	 * Sets the plan.
+	 *
+	 * @param plan the new plan
 	 */
 	public void setPlan(Plan plan)
 	{
 		this.plan = plan;
 	}
+	
 }
