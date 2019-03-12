@@ -122,6 +122,10 @@ public class Server implements PlanInterface
 		}
 		
 		Department department = account.getDepartment();
+		if(department == null)
+		{
+			return null;
+		}
 		Set<Integer> map = department.plans.keySet();
 		Iterator<Integer> plans = map.iterator();
 		String outline="";

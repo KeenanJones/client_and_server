@@ -314,4 +314,20 @@ class ServerTest
 		assertEquals(false, result);
 		
 	}
+	
+	@Test
+	void getOutLineTest()
+	{
+		Client client = new Client();
+		String cookie = client.login("Admin", "helloworld");
+		client.addAdmin("Admin5", "helloworld", "Chemistry", cookie);
+		cookie = client.login("Admin5", "helloworld");
+		String planOutlineString = client.getPlanOutline(cookie);
+		String departmentOutlineString = client.getDepartmentOutline();
+		System.out.println(planOutlineString);
+		System.out.println(departmentOutlineString);
+		assertNotEquals(null, planOutlineString);
+		assertNotEquals(null, departmentOutlineString);
+
+	}
 }

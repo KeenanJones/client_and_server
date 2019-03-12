@@ -1,8 +1,14 @@
 package Software_Master_A.client_and_server;
 
+/**
+ * @author liujiang
+ * This class is used to help the server to save itself
+ */
+ 
 public class ServerSave extends Thread{
 
 	Server server;
+	
 	long time = 2000;
 	public ServerSave(Server server) {
 		// TODO Auto-generated constructor stub
@@ -10,6 +16,10 @@ public class ServerSave extends Thread{
 	}
 	
 	
+	/* (non-Javadoc)
+	 * @see java.lang.Thread#run()
+	 * This function is built to enable server to save itself every 2 minutes
+	 */
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
