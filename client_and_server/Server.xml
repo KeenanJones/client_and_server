@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="9.0.4" class="java.beans.XMLDecoder">
+ <object class="Software_Master_A.client_and_server.Server">
+  <void property="cookieMap">
+   <object class="java.util.Hashtable">
+    <void method="put">
+     <string>���{\G�?� ��x7��:d����fR�</string>
+     <object class="Software_Master_A.client_and_server.Account" id="Account0">
+      <void property="cookie">
+       <string>���{\G�?� ��x7��:d����fR�</string>
+      </void>
+      <void property="department">
+       <object class="Software_Master_A.client_and_server.Department" id="Department0">
+        <void property="departmentName">
+         <string>Hello4</string>
+        </void>
+        <void property="plans">
+         <object class="java.util.Hashtable"/>
+        </void>
+       </object>
+      </void>
+      <void property="password">
+       <string>reallycool4</string>
+      </void>
+      <void property="username">
+       <string>cool4</string>
+      </void>
+     </object>
+    </void>
+    <void method="put">
+     <string>D7�lC����)�Ic_\��/H��<char code="#1a"/><char code="#10"/>P8</string>
+     <object class="Software_Master_A.client_and_server.Account" id="Account1">
+      <void property="cookie">
+       <string>D7�lC����)�Ic_\��/H��<char code="#1a"/><char code="#10"/>P8</string>
+      </void>
+      <void property="department">
+       <object class="Software_Master_A.client_and_server.Department" id="Department1">
+        <void property="departmentName">
+         <string>Hello1</string>
+        </void>
+        <void property="plans">
+         <object class="java.util.Hashtable"/>
+        </void>
+       </object>
+      </void>
+      <void property="password">
+       <string>reallycool1</string>
+      </void>
+      <void property="username">
+       <string>cool1</string>
+      </void>
+     </object>
+    </void>
+    <void method="put">
+     <string>Y��s��\)<char code="#15"/>�Qk�Y<char code="#18"/>YWi��͡�n�</string>
+     <object class="Software_Master_A.client_and_server.Account" id="Account2">
+      <void property="cookie">
+       <string>Y��s��\)<char code="#15"/>�Qk�Y<char code="#18"/>YWi��͡�n�</string>
+      </void>
+      <void property="department">
+       <object class="Software_Master_A.client_and_server.Department" id="Department2">
+        <void property="departmentName">
+         <string>Hello3</string>
+        </void>
+        <void property="plans">
+         <object class="java.util.Hashtable"/>
+        </void>
+       </object>
+      </void>
+      <void property="password">
+       <string>reallycool3</string>
+      </void>
+      <void property="username">
+       <string>cool3</string>
+      </void>
+     </object>
+    </void>
+    <void method="put">
+     <string>�B�;�__Q<char code="#0"/><char code="#1e"/>��<char code="#f"/>�aV#���B�3��}</string>
+     <object class="Software_Master_A.client_and_server.Account" id="Account3">
+      <void property="cookie">
+       <string>�B�;�__Q<char code="#0"/><char code="#1e"/>��<char code="#f"/>�aV#���B�3��}</string>
+      </void>
+      <void property="department">
+       <object class="Software_Master_A.client_and_server.Department" id="Department3">
+        <void property="departmentName">
+         <string>Hello0</string>
+        </void>
+        <void property="plans">
+         <object class="java.util.Hashtable"/>
+        </void>
+       </object>
+      </void>
+      <void property="password">
+       <string>reallycool0</string>
+      </void>
+      <void property="username">
+       <string>cool0</string>
+      </void>
+     </object>
+    </void>
+    <void method="put">
+     <string>12sdfsdg</string>
+     <object class="Software_Master_A.client_and_server.Account" id="Account4">
+      <void property="admin">
+       <boolean>true</boolean>
+      </void>
+      <void property="cookie">
+       <string>12sdfsdg</string>
+      </void>
+      <void property="password">
+       <string>helloworld</string>
+      </void>
+      <void property="username">
+       <string>Admin</string>
+      </void>
+     </object>
+    </void>
+    <void method="put">
+     <string> <char code="#1"/>���պe��D <char code="#6"/>�<char code="#6"/>�&lt;�������</string>
+     <object class="Software_Master_A.client_and_server.Account" id="Account5">
+      <void property="cookie">
+       <string> <char code="#1"/>���պe��D <char code="#6"/>�<char code="#6"/>�&lt;�������</string>
+      </void>
+      <void property="department">
+       <object class="Software_Master_A.client_and_server.Department" id="Department4">
+        <void property="departmentName">
+         <string>Hello2</string>
+        </void>
+        <void property="plans">
+         <object class="java.util.Hashtable"/>
+        </void>
+       </object>
+      </void>
+      <void property="password">
+       <string>reallycool2</string>
+      </void>
+      <void property="username">
+       <string>cool2</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void property="departmentMap">
+   <object class="java.util.Hashtable">
+    <void method="put">
+     <string>Hello4</string>
+     <object idref="Department0"/>
+    </void>
+    <void method="put">
+     <string>Hello3</string>
+     <object idref="Department2"/>
+    </void>
+    <void method="put">
+     <string>Hello2</string>
+     <object idref="Department4"/>
+    </void>
+    <void method="put">
+     <string>Hello1</string>
+     <object idref="Department1"/>
+    </void>
+    <void method="put">
+     <string>Hello0</string>
+     <object idref="Department3"/>
+    </void>
+    <void method="put">
+     <string>Chemistry</string>
+     <object class="Software_Master_A.client_and_server.Department">
+      <void property="departmentName">
+       <string>Chemistry</string>
+      </void>
+      <void property="plans">
+       <object class="java.util.Hashtable">
+        <void method="put">
+         <int>2001</int>
+         <object class="Software_Master_A.client_and_server.PlanFile">
+          <void property="editable">
+           <boolean>true</boolean>
+          </void>
+          <void property="plan">
+           <object class="Software_Master_A.client_and_server.Centre" id="Centre0">
+            <void class="Software_Master_A.client_and_server.Centre" method="getField">
+             <string>name</string>
+             <void method="set">
+              <object idref="Centre0"/>
+              <string>Chemistry1</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void property="year">
+           <int>2001</int>
+          </void>
+         </object>
+        </void>
+        <void method="put">
+         <int>2000</int>
+         <object class="Software_Master_A.client_and_server.PlanFile">
+          <void property="editable">
+           <boolean>true</boolean>
+          </void>
+          <void property="plan">
+           <object class="Software_Master_A.client_and_server.Centre" id="Centre1">
+            <void class="Software_Master_A.client_and_server.Centre" method="getField">
+             <string>name</string>
+             <void method="set">
+              <object idref="Centre1"/>
+              <string>Chemistry0</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void property="year">
+           <int>2000</int>
+          </void>
+         </object>
+        </void>
+        <void method="put">
+         <int>2002</int>
+         <object class="Software_Master_A.client_and_server.PlanFile">
+          <void property="editable">
+           <boolean>true</boolean>
+          </void>
+          <void property="plan">
+           <object class="Software_Master_A.client_and_server.Centre" id="Centre2">
+            <void class="Software_Master_A.client_and_server.Centre" method="getField">
+             <string>name</string>
+             <void method="set">
+              <object idref="Centre2"/>
+              <string>Chemistry2</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void property="year">
+           <int>2002</int>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void property="loginMap">
+   <object class="java.util.Hashtable">
+    <void method="put">
+     <string>cool4</string>
+     <object idref="Account0"/>
+    </void>
+    <void method="put">
+     <string>cool3</string>
+     <object idref="Account2"/>
+    </void>
+    <void method="put">
+     <string>cool2</string>
+     <object idref="Account5"/>
+    </void>
+    <void method="put">
+     <string>cool1</string>
+     <object idref="Account1"/>
+    </void>
+    <void method="put">
+     <string>cool0</string>
+     <object idref="Account3"/>
+    </void>
+    <void method="put">
+     <string>Admin</string>
+     <object idref="Account4"/>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
